@@ -1,0 +1,16 @@
+{
+    "aironet": [
+        {
+            "host_ip": "10.82.10.3",
+            "hostname": "82-RamAccessPoint",
+            "username": "admin",
+            "password": "pass",
+            "ssid": "82-ResortsWorld",
+            "authentication": "open",
+            "key-man": "wpa",
+            "wifi-pass": "C1sc0123",
+            "channel": "13",
+            "enc-mod": "tkip"
+        }
+    ]
+}
