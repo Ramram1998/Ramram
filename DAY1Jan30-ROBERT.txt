@@ -128,10 +128,10 @@ Int Fa 0/7
  end
 
 ip dhcp pool CAMERA6
-host 10._.50.6 255.255.255.0
+host 10.82.50.6 255.255.255.0
 client-identifier aaaa.bbbb.cccc
 ip dhcp pool CAMERA8
-host 10._.50.8 255.255.255.0
+host 10.82.50.8 255.255.255.0
 client-identifier cccc.dddd.aaaa
 
 !!cisco unified call manager Express command
