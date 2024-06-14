@@ -37,9 +37,10 @@ config t
 ipv6 unicast-routing
 int giga 2
  no shutdown
- ipv6 add dada:dada:fafa:fafa::/64 EUI-64
+ ipv6 add baba:baba:caca:caca::/64 EUI-64
  do sh ipv6 int brief
 end
+
 
 @P2
 config t
@@ -55,7 +56,8 @@ Method3: STatic IPv6 address manual:
 config t
 ipv6 unicast-routing
 int giga 2
- ipv6 add FACE:CAFE:ACED:DACE::FFFF/64
+no shut
+ ipv6 add BABE:BEBE:DADE:DEDE::FFFF/64
  do sh ipv6 int brief
 end
 
@@ -85,17 +87,17 @@ Top 5 brands:
 sh spanning-tree vlan 1
 
 TASK3: EXPENSIVE SWITCH/MANAGEABLE SWITCH:\ = 20k
-1. mac address learning": sh mac address-table
-2  mac address filtering
-3  mac address forwaring
+1. mac address learning": sh mac address-table - detect mac add
+2  mac address filtering - full duplex
+3  mac address forwaring - full duplex
 4  Php: loop avoidance
 5. $$: Vlan Feature $$ = 60k up
 
 COREbaba12#sh mac address-table
 
 TASK4: Mastering the Switch BUttons:
-Mode Button: jailBreak/Password Forget
-Poweroff, Press Mode, until
+Mode Button: jailBreak/factory reset - Password Forget
+Poweroff, Hold Mode, until
 Switch:  flash_init
 	 delete flash:config.text
          delete flash:vlan.dat
@@ -103,7 +105,7 @@ Switch:  flash_init
 
 TASK5: HOW TO SPOT A VERY HEALTHY SWITCH?
 super healthy: "all flashing green."
-amber/orange: needs help.
+amber/orange: needs help - you are protected
 
 create vlans,
 transfer ports to vlans
@@ -126,7 +128,7 @@ NO spanning-tree vlan 1-999
 end
 @taas:
 config t
-spanning-tree vlan 1
+spanning-tree vlan 1-999
 end
 
 TASK7: HOW TO BECOME A WORLD-CLASS NETWORK ENGINEER
@@ -343,19 +345,54 @@ config t
 hostname PLDTITO
 Track 1 Int gi 0/1 line-protocol
 Int vlan 1
-standby 1 ip 10.__.1.6
+standby 1 ip 10.82.1.6
 standby 1 preempt
 standby 1 Priority 150
 standby 1 Track 1 decrement 60
 
-@BABA
+@D1 para realworld:
 config t
-hostname GLOBE
-Int vlan 1
-standby 1 ip 10.__.1.6
-standby 1 preempt
-standby 1 Priority 100
+Track 1 Int e1/0 line-protocol
+Int vlan 10
+standby 10 ip 10.2.1.3
+standby 10 preempt
+standby 10 Priority 150
+standby 10 Track 1 decrement 60
+
+@D2 para real world
+config t
+Int vlan 10
+standby 10 ip 10.2.1.3
+standby 10 preempt
+standby 10 Priority 100
 do sh standby
+
+@BABA/GLOBEinternet:
+config t
+hostname GLOBEITO
+Int vlan 1
+standby 1 ip 10.82.1.6
+standby 1 preempt
+standby 1 Track 1 decrement 60
+
+#KUNG KAYA MO 80 TO 150K A MONTH:VRRP & GLBP:
+@D1
+config t
+Track 1 Int e1/0 line-protocol
+Int vlan 10
+no standby 10
+VRRP 10 ip 10.2.1.3
+VRRP 10 preempt
+VRRP 10 Priority 150
+VRRP 10 Track 1 decrement 60
+
+@D2
+config t
+Int vlan 10
+no standby 10
+VRRP 10 ip 10.2.1.3
+VRRP 10 preempt
+VRRP 10 Priority 100
 
 TASK17: Port-Aggregation/Etherchannel:
 LACP:LINK AGGREGATION CONTROL PROTOCOL = ieee worldStandrad
